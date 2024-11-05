@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
+"""
+Given an integer num, return the number of digits in num that divide num.
 
+An integer val divides nums if nums % val == 0.
+"""
 
 f =[int(input()) ]# taking a number as an input an converting it tot
 
