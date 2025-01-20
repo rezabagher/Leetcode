@@ -1,0 +1,11 @@
+class Solution(object):
+    def maxProfit(self, prices):
+        minn_price = float('inf')
+        max_profit = 0
+        for price in prices:
+            if price < minn_price:
+                minn_price = price  # Update the minimum price
+            profit = price - minn_price  # Calculate the profit if sold at current price
+            if profit > max_profit:
+                max_profit = profit  # Update max_profit if the current profit is greater
+        return max_profit
