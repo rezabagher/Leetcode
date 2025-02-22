@@ -1,18 +1,20 @@
 class Solution(object):
     def gcdOfStrings(self, str1, str2):
-      if len(str1)>= len(str2):
+      if len(str1)>= len(str2): # finding the bigger string
         bigger = str1
         smaller = str2
       else:
         bigger = str2
         smaller = str1
-      for i in range(1, len(smaller)+1):
+      for i in range(1, len(smaller)+1): # find the gcd (greates t common divisor)
         if (len(smaller) % i == 0 ) and (len(bigger) %  i== 0):
           gcd = i
       while bigger:
         bigger , s_bigger = bigger[gcd: ], bigger[:gcd]
-        if smaller != "":
+        if smaller != "": # to not get error of empty smaller 
           smaller, s_smaller = smaller[gcd: ], smaller[:gcd]
         if s_bigger != s_smaller:
           return ""
       return s_smaller
+""" you can check if two string are created by the same charactors just by  using str1 + str2 = str2 + str1
+"""
