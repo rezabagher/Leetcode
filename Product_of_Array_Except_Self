@@ -1,0 +1,20 @@
+class Solution(object):
+    def productExceptSelf(self, nums):
+        le = len(nums) # we are going to use len(nums) alot so lets not repeat ourself
+        n_r = [0] * le# right components of  i multiples
+        n_l = [0] * le  # left ponenets of i multiples
+        cl = 1 # multiple an keep the varialbe start point for left part
+        cr = 1 # multiple an keep the varialbe start point for right part
+        n_l[0] = 1 # first left must be one because there is nothing in the left
+        for i in range(1,le):
+          cl = cl  * nums[i-1]
+          n_l[i] = cl
+        j = le - 1
+        n_r[j] = 1
+        while j > 0:
+          cr = cr * nums[j]
+          j = j - 1 
+          n_r[j] = cr # last right must be 0ne because there is nothing in the right
+        for k in range(le):
+          nums[k] = n_l[k] * n_r[k]
+        return nums
