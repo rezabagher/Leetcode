@@ -12,3 +12,4 @@ class Solution(object):
                     else:
                      i = i + 1 # if the value is zero , we won't change anything and move on to the next value
         return nums
+# i think i get this now
