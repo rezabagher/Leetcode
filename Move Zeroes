@@ -1,7 +1,7 @@
 class Solution(object):
     def moveZeroes(self, nums):
-        i = 0 # zero pointers
-        j = 0 # non-zero pointers
+        i = 0 # for zero pointers
+        j = 0 # for non-zero pointers
 
         while i < len(nums) and j < len(nums) : # continue till end of the list , i and j both should be checked in case all are non zero we need to check i and for all zero case we need to check j
                     if nums[i]  == 0:
