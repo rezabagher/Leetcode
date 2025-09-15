@@ -1,5 +1,43 @@
 import unittest
-from Add_two_Numbers import Solution, list_to_linked, linked_to_list, ListNode
+# Definition for singly-linked list.
+class ListNode(object):
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        def add_up(l_1, l_2):
+            dummy = ListNode(0)
+            current = dummy
+            carry = 0
+            while l_1 or l_2 or carry:
+                x = l_1.val if l_1 else 0
+                y = l_2.val if l_2 else 0
+                total = x + y + carry
+                carry = total // 10
+                current.next = ListNode(total % 10)
+                current = current.next
+                l_1 = l_1.next if l_1 else None
+                l_2 = l_2.next if l_2 else None
+            return dummy.next
+        return add_up(l1, l2)
+
+# Helper functions
+def list_to_linked(lst):
+    dummy = ListNode(0)
+    current = dummy
+    for num in lst:
+        current.next = ListNode(num)
+        current = current.next
+    return dummy.next
+
+def linked_to_list(node):
+    result = []
+    while node:
+        result.append(node.val)
+        node = node.next
+    return result
 
 class TestAddTwoNumbers(unittest.TestCase):
     def setUp(self):
